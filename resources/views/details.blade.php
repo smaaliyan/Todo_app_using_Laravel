@@ -13,8 +13,16 @@
         <div class="card-body">
             <h5 class="card-title">{{$todos->name}}</h5>
             <p class="card-text">{{$todos->description}}.</p>
-            <a href="edit/{{$todos->id}}"><span class="btn btn-primary">Edit</span></a>
-            <a href="delete/{{$todos->id}}"><span class="btn btn-danger">Delete</span></a>
+            
+            <div class="button-container">
+                <a href="edit/{{$todos->id}}" class="btn btn-primary edit-button">Edit</a>
+                
+                <form action="{{ route('todos.destroy', ['todo' => $todos]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger delete-button">Delete</button>
+                </form>
+            </div>
         </div>
     </div>
 

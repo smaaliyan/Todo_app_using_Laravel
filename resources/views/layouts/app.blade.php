@@ -30,7 +30,20 @@
 }
 
   </style>
-
+<style>
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .delete-button {
+        margin-left: auto;
+    }
+    
+</style>
 
 
 

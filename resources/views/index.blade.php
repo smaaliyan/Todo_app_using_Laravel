@@ -16,14 +16,6 @@
                                 @csrf
                                 @method('PATCH') {{-- Assuming you'll use a PATCH request for marking as completed --}}
                                 <button type="submit" class="btn btn-success btn-sm">Mark as Completed</button>
-                            </form>
-                            
-                            {{-- Delete Form --}}
-                            <form action="{{ route('todos.destroy', ['todo' => $todo]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm ml-2">Delete</button>
-                            </form>
                         </div>
                     </div>
                 </li>
