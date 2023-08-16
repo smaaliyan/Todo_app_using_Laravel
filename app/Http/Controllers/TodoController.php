@@ -37,12 +37,14 @@ class TodoController extends Controller
         //we will write codes for updating a todo here
 
     }
-    public function delete()
+    public function destroy(Todo $todo)
     {
+        $todo->delete();
 
-        //we will write codes for deleting a todo here
-
+        session()->flash('success', 'Todo deleted successfully');
+        return redirect('/');
     }
+
 
     public function store(Request $request)
     {
@@ -60,6 +62,15 @@ class TodoController extends Controller
         $todo->description = $request['description'];
         $todo->save();
         session()->flash('success', 'Todo created succesfully');
+        return redirect('/');
+    }
+    public function markCompleted(Todo $todo)
+    {
+        // Update the completed status of the todo
+        $todo->completed = true;
+        $todo->save();
+
+        session()->flash('success', 'Todo marked as completed');
         return redirect('/');
     }
 }

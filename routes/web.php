@@ -21,6 +21,9 @@ Route::get('create', [TodoController::class, 'create']);
 Route::get('details/{todo}', [TodoController::class, 'details']);
 Route::get('edit', [TodoController::class, 'edit']);
 Route::post('update', [TodoController::class, 'update']);
+Route::delete('delete/{todo}', [TodoController::class, 'destroy'])->name('todos.destroy');
+Route::patch('mark-completed/{todo}', [TodoController::class, 'markCompleted'])->name('todos.markCompleted');
+
 
 Route::get('delete', [TodoController::class, 'delete']);
 Route::post('store-data', [TodoController::class, 'store']);

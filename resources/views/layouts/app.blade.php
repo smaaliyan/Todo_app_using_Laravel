@@ -19,6 +19,23 @@
             font-family: 'Nunito';
         }
     </style>
+    <style>
+        .button-spacing {
+            margin-right: 10px; /* Adjust the value to control the spacing */
+        }
+    </style>
+  <style>
+    .completed-row {
+    background-color: #8aff8a; /* Green color */
+}
+
+  </style>
+
+
+
+
+    
+    
 </head>
 
 <body>
@@ -42,6 +59,27 @@
 @endif
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.mark-completed-form').submit(function(e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
+                success: function(response) {
+                    form.closest('li').addClass('completed-row');
+                }
+            });
+        });
+    });
+</script>
+
 
 </body>
 
