@@ -15,15 +15,14 @@ use App\Http\Controllers\TodoController;
 */
 
 Route::get('/', [TodoController::class, 'index']);
-
 Route::get('create', [TodoController::class, 'create']);
-
 Route::get('details/{todo}', [TodoController::class, 'details']);
-Route::get('edit', [TodoController::class, 'edit']);
+// Route::get('edit', [TodoController::class, 'edit']);
 Route::post('update', [TodoController::class, 'update']);
 Route::delete('delete/{todo}', [TodoController::class, 'destroy'])->name('todos.destroy');
 Route::patch('mark-completed/{todo}', [TodoController::class, 'markCompleted'])->name('todos.markCompleted');
-
-
-Route::get('delete', [TodoController::class, 'delete']);
+// Route::get('delete', [TodoController::class, 'delete']);
 Route::post('store-data', [TodoController::class, 'store']);
+Route::resource('todos', TodoController::class);
+Route::get('todos/{todo}/edit', [TodoController::class, 'edit'])->name('todos.edit');
+Route::get('todos/{todo}', [TodoController::class, 'details'])->name('todos.details');
